@@ -127,5 +127,4 @@ tag_format = "v$major.$minor.$patch$prerelease"
 version = "0.1.0"
 version_files = [
   "pyproject.toml:version",
-  "api_development_course/__version__.py",
 ]
