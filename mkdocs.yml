@@ -1,0 +1,67 @@
+site_name: api-development-course
+site_description: Python API development course
+site_author: Samuel Moore
+
+site_url: https://samuel-odinware.github.io/api-development-course/
+repo_url: https://github.com/samuel-odinware/api-development-course
+edit_uri: https://github.com/samuel-odinware/api-development-course/edit/main/docs
+
+theme:
+  name: material
+  palette:
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: blue
+      accent: green
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: blue
+      accent: green
+      toggle:
+        icon: material/weather-night
+        name: Switch to dark mode
+
+markdown_extensions:
+  - admonition
+  - pymdownx.highlight
+  - pymdownx.details
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:mermaid2.fence_mermaid
+
+extra_javascript:
+  - https://unpkg.com/mermaid/dist/mermaid.min.js
+
+plugins:
+  - search
+  - mermaid2:
+      arguments:
+        securityLevel: "loose"
+        theme: |
+          ^(window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) ? 'dark' : 'light'
+
+  - mkdocstrings:
+      default_handler: python
+      handlers:
+        python:
+          rendering:
+            heading_level: 3
+            show_signature_annotations: true
+            show_source: true
+            show_root_toc_entry: false
+            show_root_heading: true
+            show_root_full_path: true
+          selection:
+            docstring_style: google
+
+nav:
+  - Home: index.md
+  - About:
+      - Release Notes: about/changelog.md
+      - Contributing: about/contributing.md
+      - Code of Conduct: about/code_of_conduct.md

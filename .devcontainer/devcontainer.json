@@ -1,68 +1,74 @@
 {
-    "name": "api-development-course",
-    "image": "mcr.microsoft.com/devcontainers/python:1-3.11-bookworm",
-    "features": {
-        "ghcr.io/devcontainers-contrib/features/poetry:2": {}
-    },
-    "remoteEnv": {
-        "POETRY_NO_INTERACTION": "1",
-        "POETRY_VIRTUALENVS_IN_PROJECT": "true"
-    },
-    "customizations": {
-        "vscode": {
-            "settings": {
-                "python.defaultInterpreterPath": ".venv/bin/python",
-                "python.analysis.autoImportCompletions": true,
-                "python.analysis.autoSearchPaths": true,
-                "python.autoComplete.extraPaths": [
-                    ".venv/lib",
-                    "pipam",
-                    "tests"
-                ],
-                "python.analysis.extraPaths": [
-                    ".venv/lib",
-                    "pipam",
-                    "tests"
-                ],
-                "[python]": {
-                    "editor.formatOnSave": true,
-                    "editor.defaultFormatter": "ms-python.black-formatter",
-                    "editor.formatOnPaste": false,
-                    "editor.codeActionsOnSave": {
-                        "source.organizeImports": true,
-                        "source.fixAll": true
-                    }
-                },
-                "python.testing.unittestEnabled": false,
-                "python.testing.pytestEnabled": true,
-                "python.testing.pytestPath": ".venv/bin/pytest",
-                "python.testing.pytestArgs": [
-                    "tests"
-                ],
-                "files.insertFinalNewline": true,
-                "yaml.customTags": [
-                    "tag:yaml.org,2002:python/name:pymdownx.superfences.fence_code_format scalar",
-                    "tag:yaml.org,2002:python/name:mermaid2.fence_mermaid scalar"
-                ]
-            },
-            "extensions": [
-                "ms-python.python",
-                "ms-python.vscode-pylance",
-                "2gua.rainbow-brackets",
-                "aaron-bond.better-comments",
-                "be5invis.toml",
-                "charliermarsh.ruff",
-                "EditorConfig.EditorConfig",
-                "Gruntfuggly.todo-tree",
-                "mhutchie.git-graph",
-                "ms-python.black-formatter",
-                "ms-python.python",
-                "ms-python.vscode-pylance",
-                "njpwerner.autodocstring",
-                "oderwat.indent-rainbow",
-                "redhat.vscode-yaml",
-                "vivaxy.vscode-conventional-commits"
-            ]
-        }
+  "name": "api-development-course",
+  "image": "mcr.microsoft.com/devcontainers/python:1-3.11-bookworm",
+  "features": {
+    "ghcr.io/devcontainers-contrib/features/poetry:2": {}
+  },
+  "remoteEnv": {
+    "POETRY_NO_INTERACTION": "1",
+    "POETRY_VIRTUALENVS_IN_PROJECT": "true"
+  },
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "python.defaultInterpreterPath": ".venv/bin/python",
+        "python.analysis.autoImportCompletions": true,
+        "python.analysis.autoSearchPaths": true,
+        "python.autoComplete.extraPaths": [
+          ".venv/lib",
+          "pipam",
+          "tests"
+        ],
+        "python.analysis.extraPaths": [
+          ".venv/lib",
+          "pipam",
+          "tests"
+        ],
+        "[python]": {
+          "editor.formatOnSave": true,
+          "editor.defaultFormatter": "ms-python.black-formatter",
+          "editor.formatOnPaste": false,
+          "editor.codeActionsOnSave": {
+            "source.organizeImports": true,
+            "source.fixAll": true
+          }
+        },
+        "python.testing.unittestEnabled": false,
+        "python.testing.pytestEnabled": true,
+        "python.testing.pytestPath": ".venv/bin/pytest",
+        "python.testing.pytestArgs": [
+          "tests"
+        ],
+        "files.insertFinalNewline": true,
+        "yaml.schemas": {
+          "https://squidfunk.github.io/mkdocs-material/schema.json": "mkdocs.yml"
+        },
+        "yaml.customTags": [
+          "!ENV scalar",
+          "!ENV sequence",
+          "tag:yaml.org,2002:python/name:pymdownx.superfences.fence_code_format",
+          "tag:yaml.org,2002:python/name:mermaid2.fence_mermaid"
+        ]
+      },
+      "extensions": [
+        "ms-python.python",
+        "ms-python.vscode-pylance",
+        "2gua.rainbow-brackets",
+        "aaron-bond.better-comments",
+        "be5invis.toml",
+        "charliermarsh.ruff",
+        "EditorConfig.EditorConfig",
+        "Gruntfuggly.todo-tree",
+        "mhutchie.git-graph",
+        "ms-python.black-formatter",
+        "ms-python.python",
+        "ms-python.vscode-pylance",
+        "njpwerner.autodocstring",
+        "oderwat.indent-rainbow",
+        "redhat.vscode-yaml",
+        "vivaxy.vscode-conventional-commits"
+      ]
     }
+  },
+  "postStartCommand": "git config --global user.email samuel@odinware.com && git config --global user.name 'Samuel Moore'"
 }

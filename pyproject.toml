@@ -1,0 +1,131 @@
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry]
+name = "api-development-course"
+version = "0.1.0"
+description = ""
+authors = ["Samuel Moore <samuel@odinware.com>"]
+readme = "README.md"
+
+# [tool.poetry.scripts]
+# greet = "echo hell, world"
+# make_docs = "echo test"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+loguru = "*"
+pydantic = {extras = ["dotenv"], version = "^2.3.0"}
+pydantic-settings = "^2.0.3"
+pydantic-extra-types = "^2.1.0"
+fastapi = "^0.103.1"
+uvicorn = {extras = ["standard"], version = "^0.23.2"}
+
+[tool.poetry.group.documentation.dependencies]
+commitizen = "*"
+mkdocs = "*"
+mkdocs-autorefs = "*"
+mkdocs-material = "*"
+mkdocs-material-extensions = "*"
+mkdocs-mermaid2-plugin = "*"
+mkdocstrings = {extras = ["python"], version = "*"}
+pygments = "*"
+pymdown-extensions = "*"
+
+[tool.poetry.group.formating.dependencies]
+black = "*"
+
+[tool.poetry.group.linting.dependencies]
+ruff = "*"
+
+[tool.poetry.group.testing.dependencies]
+coverage = {extras = ["toml"], version = "*"}
+hypothesis = "*"
+pytest = "*"
+pytest-cov = "*"
+
+[tool.poetry.group.ci.dependencies]
+pre-commit = "*"
+
+[tool.black]
+line-length = 100
+target_version = ['py311']
+
+exclude = '''
+/(
+    \.git
+    | \.hg
+    | \.mypy_cache
+    | \.tox
+    | \.venv
+    | _build
+    | buck-out
+    | build
+    | dist
+    | env
+    | venv
+)/
+'''
+
+[tool.ruff]
+line-length = 100
+select = [
+  "N", # pep8-naming
+  "E", # pycodestyle errors
+  "W", # pycodestyle warnings
+  "F", # pyflakes
+  "UP", # pyupgrade
+  "D", # pydocstyle
+  "I", # isort
+  "ANN", # flake8-annotations
+  "ASYNC", # flake8-async
+  "B", # flake8-bugbear
+  "A", # flake8-builtins
+  "S", # flake8-bandit
+  "C", # flake8-comprehensions
+  "PTH", # flake8-use-pathlib
+  "TD", # flake8-todos
+  "C90", # mccabe
+  "PERF", # perflint
+  "RUF", # ruff
+]
+target-version = "py311"
+fixable = ["ALL"]
+ignore = ["D203", "D213"]
+
+[tool.ruff.isort]
+lines-after-imports = 2
+
+[tool.pytest.ini_options]
+doctest_optionflags = ["NUMBER", "NORMALIZE_WHITESPACE", "IGNORE_EXCEPTION_DETAIL"]
+norecursedirs = ["hooks", "*.egg", ".eggs", "dist", "build", "docs", ".tox", ".git", "__pycache__"]
+
+# Extra options:
+addopts = [
+  "--strict-markers",
+  "--tb=short",
+  "--doctest-modules",
+  "--doctest-continue-on-failure",
+  "--cov-report=html",
+  "--cov-report=term-missing:skip-covered",
+  "--no-cov-on-fail",
+  "--cov",
+]
+
+[tool.coverage.run]
+branch = true
+data_file = ".cache/coverage"
+source = ["api_development_course"]
+
+[tool.coverage.report]
+show_missing = true
+
+[tool.commitizen]
+name = "cz_conventional_commits"
+tag_format = "v$major.$minor.$patch$prerelease"
+version = "0.1.0"
+version_files = [
+  "pyproject.toml:version",
+  "api_development_course/__version__.py",
+]
