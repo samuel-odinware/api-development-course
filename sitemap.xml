@@ -11,6 +11,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://samuel-odinware.github.io/api-development-course/about/code_of_conduct/</loc>
+         <lastmod>2023-09-22</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://samuel-odinware.github.io/api-development-course/about/contributing/</loc>
          <lastmod>2023-09-22</lastmod>
          <changefreq>daily</changefreq>
