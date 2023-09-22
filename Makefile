@@ -189,8 +189,8 @@ docs-serve: docs ## Open documentation locally
 
 # @ eval "sleep 3; $(OPEN) http://127.0.0.1:8000" &
 
-.PHONY: docs-deploy
-docs-deploy: ## Deploy documentation to gh-pages
+.PHONY: docs-publish
+docs-publish: docs ## Deploy documentation to gh-pages
 	@ mkdocs gh-deploy
 
 # CLEANUP #####################################################################
