@@ -231,6 +231,9 @@ dmypy.json
 # Plugins
 .secrets.baseline
 
+# Ruff
+.ruff_cache/
+
 ### VisualStudioCode ###
 .vscode/*
 !.vscode/tasks.json
